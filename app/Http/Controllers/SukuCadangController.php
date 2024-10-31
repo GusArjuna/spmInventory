@@ -24,7 +24,12 @@ class SukuCadangController extends Controller
      */
     public function create()
     {
-        //
+        return view("sukucadangfile.tambah",[
+            "title" => "SPM || Tambah Suku Cadang",
+            "pages" => "Tambah Suku Cadang",
+            "sebelum" => "Suku Cadang",
+            "linkPages" => "/sukucadang",
+        ]);
     }
 
     /**

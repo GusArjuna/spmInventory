@@ -36,7 +36,7 @@
         <li class="nav-item">
           <a class="nav-link {{ ($pages == 'Dashboard') ? 'active' : '' }}" href="{{ url('/home') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+              <i class="fas fa-tv text-primary text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
@@ -44,27 +44,33 @@
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#colapse" role="button" aria-expanded="false" aria-controls="colapse">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              <i class="fas fa-th-list text-success text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Barang Inventaris</span>
           </a>
           <div class="collapse" id="colapse">
             <ul class="nav flex-column ms-3">
                 <li class="nav-item">
+                    <a class="nav-link {{ ($pages == 'Jenis') ? 'active' : '' }}" href="/jenis">
+                      <i class="fas fa-boxes text-primary text-sm opacity-10"></i>
+                      Jenis Barang
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{ ($pages == 'Suku Cadang') ? 'active' : '' }}" href="/sukucadang">
-                      <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                      <i class="fas fa-truck-loading text-primary text-sm opacity-10"></i>
                       Suku Cadang
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ ($pages == 'Alat') ? 'active' : '' }}" href="/alat">
-                      <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                      <i class="fas fa-tools text-primary text-sm opacity-10"></i>
                       Alat
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ ($pages == 'Teknisi') ? 'active' : '' }}" href="/teknisi">
-                      <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                      <i class="fas fa-people-carry text-primary text-sm opacity-10"></i>
                       Teknisi
                     </a>
                 </li>
@@ -75,7 +81,7 @@
         <li class="nav-item">
           <a class="nav-link {{ ($pages == 'Laporan Kerusakan') ? 'active' : '' }}" href="{{ url('/laporankerusakan') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+              <i class="fas fa-house-damage text-danger text-danger text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Laporan Kerusakan</span>
           </a>
@@ -83,7 +89,7 @@
         <li class="nav-item">
           <a class="nav-link {{ ($pages == 'Laporan Peminjaman') ? 'active' : '' }}" href="{{ url('laporanpeminjaman') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-app text-info text-sm opacity-10"></i>
+              <i class="fas fa-sticky-note text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Laporan Peminjaman</span>
           </a>
@@ -108,10 +114,11 @@
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="{{ url('/') }}">Dashboard</a></li>
+            {!! isset($linkPages) ? '<li class="breadcrumb-item text-sm text-white"><a class="opacity-5 text-white" href="' . url($linkPages) . '">' . $sebelum . '</a></li>' : '' !!}
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">{{ $pages }}</li>
           </ol>
-          <h6 class="font-weight-bolder text-white mb-0">{{ $pages }}</h6>
+          <h6 class="font-weight-bolder text-white mb-0">{{ $pages }}</h6>  
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
