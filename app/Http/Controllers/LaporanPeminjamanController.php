@@ -24,7 +24,12 @@ class LaporanPeminjamanController extends Controller
      */
     public function create()
     {
-        //
+        return view("laporanpeminjamanfile.tambah",[
+            "title" => "SPM || Tambah Laporan",
+            "pages" => "Tambah Laporan",
+            "sebelum" => "Laporan Peminjaman",
+            "linkPages" => "/laporanpeminjaman",
+        ]);
     }
 
     /**

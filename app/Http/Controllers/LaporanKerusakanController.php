@@ -24,7 +24,12 @@ class LaporanKerusakanController extends Controller
      */
     public function create()
     {
-        //
+        return view("laporankerusakanfile.tambah",[
+            "title" => "SPM || Tambah Laporan",
+            "pages" => "Tambah Laporan",
+            "sebelum" => "Laporan Kerusakan",
+            "linkPages" => "/laporankerusakan",
+        ]);
     }
 
     /**

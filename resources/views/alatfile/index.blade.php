@@ -5,7 +5,7 @@
     <div class="card mb-4">
       <div class="card-header pb-0 d-flex justify-content-between align-items-center" style="width: 1150px">
         <h6>Daftar Alat</h6>
-        <a href="{{ url('#') }}"  class="mdc-button mdc-menu-button mdc-button--raised icon-button shaped-button secondary-filled-button mr-4">
+        <a href="{{ url('/alat/tambah') }}"  class="mdc-button mdc-menu-button mdc-button--raised icon-button shaped-button secondary-filled-button mr-4">
           <i class="fas fa-plus text-success text-lg"></i>
         </a>
       </div>

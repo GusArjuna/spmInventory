@@ -24,7 +24,12 @@ class TeknisiController extends Controller
      */
     public function create()
     {
-        //
+        return view("teknisifile.tambah",[
+            "title" => "SPM || Tambah Teknisi",
+            "pages" => "Tambah Teknisi",
+            "sebelum" => "Teknisi",
+            "linkPages" => "/teknisi",
+        ]);
     }
 
     /**

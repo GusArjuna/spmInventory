@@ -77,7 +77,6 @@
             </ul>
         </div>
         </li>
-
         <li class="nav-item">
           <a class="nav-link {{ ($pages == 'Laporan Kerusakan') ? 'active' : '' }}" href="{{ url('/laporankerusakan') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -120,14 +119,14 @@
           </ol>
           <h6 class="font-weight-bolder text-white mb-0">{{ $pages }}</h6>  
         </nav>
-        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+        {{-- <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             <div class="input-group">
               <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
               <input type="text" class="form-control" placeholder="Type here...">
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
     </nav>
     <!-- End Navbar -->

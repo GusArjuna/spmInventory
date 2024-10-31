@@ -24,7 +24,12 @@ class AlatController extends Controller
      */
     public function create()
     {
-        //
+        return view("alatfile.tambah",[
+            "title" => "SPM || Tambah Alat",
+            "pages" => "Tambah Alat",
+            "sebelum" => "Alat",
+            "linkPages" => "/alat",
+        ]);
     }
 
     /**

@@ -12,11 +12,11 @@
             @csrf
             <div class="form-group">
               <label for="nomor">Nomor Jenis</label>
-              <input type="text" class="form-control" id="nomor" placeholder="DC06" name="nomor">
+              <input type="text" class="form-control" id="nomor" placeholder="DC06" name="nomor" required autofocus>
             </div>
             <div class="form-group">
               <label for="jenis">Jenis</label>
-              <select class="form-control @error('foodCategory') is-invalid @enderror" aria-label=".form-select-sm example" name="jenis" id="jenis">
+              <select class="form-control @error('foodCategory') is-invalid @enderror" aria-label=".form-select-sm example" name="jenis" id="jenis" required>
                 <option value="alat">Alat</option>
                 <option value="sukucadang">Suku Cadang</option>
             </select>
