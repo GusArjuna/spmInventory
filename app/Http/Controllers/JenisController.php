@@ -24,7 +24,12 @@ class JenisController extends Controller
      */
     public function create()
     {
-        //
+        return view("jenisfile.tambah",[
+            "title" => "SPM || Tambah Jenis",
+            "pages" => "Tambah Jenis",
+            "sebelum" => "Jenis",
+            "linkPages" => "/jenis",
+        ]);
     }
 
     /**
@@ -32,7 +37,7 @@ class JenisController extends Controller
      */
     public function store(StorejenisRequest $request)
     {
-        //
+        dd($request);
     }
 
     /**

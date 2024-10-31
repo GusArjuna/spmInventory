@@ -5,7 +5,7 @@
     <div class="card mb-4">
       <div class="card-header pb-0 d-flex justify-content-between align-items-center" style="width: 1150px">
         <h6>Jenis Barang</h6>
-        <a href="{{ url('#') }}"  class="mdc-button mdc-menu-button mdc-button--raised icon-button shaped-button secondary-filled-button mr-4">
+        <a href="{{ url('/jenis/tambah') }}"  class="mdc-button mdc-menu-button mdc-button--raised icon-button shaped-button secondary-filled-button mr-4">
           <i class="fas fa-plus text-success text-lg"></i>
         </a>
       </div>
@@ -15,7 +15,7 @@
             <thead>
               <tr>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama</th>
-                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Kategori</th>
                 <th class="text-secondary opacity-7"></th>
               </tr>
             </thead>
@@ -32,7 +32,7 @@
                   </div>
                 </td>
                 <td class="align-middle text-center text-sm">
-                  <span class="badge badge-sm bg-gradient-success">Ada</span>
+                  <p class="text-sm font-weight-bold mb-0">DC06</p>
                 </td>
                 <td class="align-middle">
                   <a href="javascript:;" class="text-success font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
@@ -56,7 +56,7 @@
                   </div>
                 </td>
                 <td class="align-middle text-center text-sm">
-                  <span class="badge badge-sm bg-gradient-secondary">Dipinjam</span>
+                  <p class="text-sm font-weight-bold mb-0">DC06</p>
                 </td>
                 <td class="align-middle">
                   <a href="javascript:;" class="text-success font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
@@ -80,7 +80,7 @@
                   </div>
                 </td>
                 <td class="align-middle text-center text-sm">
-                  <span class="badge badge-sm bg-gradient-success">Ada</span>
+                  <p class="text-sm font-weight-bold mb-0">DC06</p>
                 </td>
                 <td class="align-middle">
                   <a href="javascript:;" class="text-success font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
@@ -104,7 +104,7 @@
                   </div>
                 </td>
                 <td class="align-middle text-center text-sm">
-                  <span class="badge badge-sm bg-gradient-success">Ada</span>
+                  <p class="text-sm font-weight-bold mb-0">DC06</p>
                 </td>
                 <td class="align-middle">
                   <a href="javascript:;" class="text-success font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
@@ -128,7 +128,7 @@
                   </div>
                 </td>
                 <td class="align-middle text-center text-sm">
-                  <span class="badge badge-sm bg-gradient-secondary">Dipinjam</span>
+                  <p class="text-sm font-weight-bold mb-0">DC06</p>
                 </td>
                 <td class="align-middle">
                   <a href="javascript:;" class="text-success font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
@@ -152,7 +152,7 @@
                   </div>
                 </td>
                 <td class="align-middle text-center text-sm">
-                  <span class="badge badge-sm bg-gradient-secondary">Dipinjam</span>
+                  <p class="text-sm font-weight-bold mb-0">DC06</p>
                 </td>
                 <td class="align-middle">
                   <a href="javascript:;" class="text-success font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">

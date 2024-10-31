@@ -37,7 +37,7 @@ class SukuCadangController extends Controller
      */
     public function store(StoreSukuCadangRequest $request)
     {
-        //
+        dd($request);
     }
 
     /**
