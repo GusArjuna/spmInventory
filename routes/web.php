@@ -4,7 +4,9 @@ use App\Http\Controllers\AlatController;
 use App\Http\Controllers\DashboardControlller;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\LaporanKerusakanController;
+use App\Http\Controllers\LaporanPembelianController;
 use App\Http\Controllers\LaporanPeminjamanController;
+use App\Http\Controllers\LaporanPenjualanController;
 use App\Http\Controllers\SukuCadangController;
 use App\Http\Controllers\TeknisiController;
 use Illuminate\Support\Facades\Route;
@@ -59,4 +61,20 @@ Route::controller(LaporanPeminjamanController::class)->group(function () {
     Route::post('/laporanpeminjaman/tambah', 'store');
     Route::get('/laporanpeminjaman/{laporanPeminjaman}/edit', 'edit');
     Route::patch('/laporanpeminjaman/{laporanPeminjaman}', 'update');
+});
+
+Route::controller(LaporanPembelianController::class)->group(function () {
+    Route::get('/laporanpembelian', 'index');
+    Route::get('/laporanpembelian/tambah', 'create');
+    Route::post('/laporanpembelian/tambah', 'store');
+    Route::get('/laporanpembelian/{laporanPembelian}/edit', 'edit');
+    Route::patch('/laporanpembelian/{LaporanPembelian}', 'update');
+});
+
+Route::controller(LaporanPenjualanController::class)->group(function () {
+    Route::get('/laporanpenjualan', 'index');
+    Route::get('/laporanpenjualan/tambah', 'create');
+    Route::post('/laporanpenjualan/tambah', 'store');
+    Route::get('/laporanpenjualan/{laporanPenjualan}/edit', 'edit');
+    Route::patch('/laporanpenjualan/{laporanPenjualan}', 'update');
 });

@@ -93,6 +93,22 @@
             <span class="nav-link-text ms-1">Laporan Peminjaman</span>
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ ($pages == 'Laporan Pembelian') ? 'active' : '' }}" href="{{ url('laporanpembelian') }}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="fas fa-store text-success text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Laporan Pembelian</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ ($pages == 'Laporan Penjualan') ? 'active' : '' }}" href="{{ url('laporanpenjualan') }}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="fas fa-shopping-cart text-danger text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Laporan Penjualan</span>
+          </a>
+        </li>
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account Setting</h6>
         </li>

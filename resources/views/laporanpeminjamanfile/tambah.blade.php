@@ -15,11 +15,11 @@
               <input type="text" class="form-control" id="nomor" placeholder="DC06" name="nomor" required autofocus>
             </div>
             <div class="form-group">
-              <label for="nama">Nama Laporan</label>
-              <input type="text" class="form-control" id="nama" placeholder="Oil" name="nama" required>
+              <label for="peminjam">peminjam Peminjam</label>
+              <input type="text" class="form-control" id="peminjam" placeholder="John" name="peminjam" required>
             </div>
             <div class="form-group">
-              <label for="sukucadang">Jenis Laporan</label>
+              <label for="sukucadang">Barang Yang Dipinjam</label>
               <select class="form-control @error('foodCategory') is-invalid @enderror" aria-label=".form-select-sm example" name="sukucadang" id="sukuCadang" required>
                 <option value="">- Pilih Salah Satu -</option>
                 {{-- @foreach ($foodCategories as $foodCategory) --}}
@@ -29,15 +29,12 @@
             </select>
             </div>
             <div class="form-group">
-              <label for="harga">Harga Suku Cadang</label>
-              <input type="number" class="form-control" id="harga" placeholder="15000" name="harga" required>
+              <label for="tanggal" class="form-control-label">Tanggal Kembali</label>
+              <input class="form-control" type="date" value="2018-11-23" id="tanggal">
             </div>
             <div class="form-group">
-              <label for="ketersediaan">Ketersediaan</label>
-              <select class="form-control @error('foodCategory') is-invalid @enderror" aria-label=".form-select-sm example" name="ketersediaan" id="ketersediaan" required>
-                <option value="1">Ada</option>
-                <option value="0">Tidak Ada</option>
-            </select>
+              <label for="harga">Harga</label>
+              <input type="number" class="form-control" id="harga" name="harga" required disabled>
             </div>
             <button type="submit" class="btn bg-gradient-primary">Sumbit</button>
           </form>

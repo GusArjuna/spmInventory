@@ -11,33 +11,20 @@
           <form action="" method="POST">
             @csrf
             <div class="form-group">
-              <label for="nomor">Nomor Teknisi</label>
+              <label for="nomor">Nomor</label>
               <input type="text" class="form-control" id="nomor" placeholder="DC06" name="nomor" required autofocus>
             </div>
             <div class="form-group">
-              <label for="nama">Nama Teknisi</label>
+              <label for="nama">Nama</label>
               <input type="text" class="form-control" id="nama" placeholder="Oil" name="nama" required>
             </div>
             <div class="form-group">
-              <label for="sukucadang">Jenis Teknisi</label>
-              <select class="form-control @error('foodCategory') is-invalid @enderror" aria-label=".form-select-sm example" name="sukucadang" id="sukuCadang" required>
-                <option value="">- Pilih Salah Satu -</option>
-                {{-- @foreach ($foodCategories as $foodCategory) --}}
-                <option value="123">Kangen</option>
-                {{-- <option {{ (old('foodCategory')==$foodCategory->kode)?"selected":"" }} value="{{ $foodCategory->kode }}">{{ $foodCategory->kode }} - {{ $foodCategory->nama }}</option> --}}
-                {{-- @endforeach --}}
-            </select>
+              <label for="jabatan">Jabatan</label>
+              <input type="text" class="form-control" id="jabatan" placeholder="Manager" name="jabatan" required>
             </div>
             <div class="form-group">
-              <label for="harga">Harga Suku Cadang</label>
-              <input type="number" class="form-control" id="harga" placeholder="15000" name="harga" required>
-            </div>
-            <div class="form-group">
-              <label for="ketersediaan">Ketersediaan</label>
-              <select class="form-control @error('foodCategory') is-invalid @enderror" aria-label=".form-select-sm example" name="ketersediaan" id="ketersediaan" required>
-                <option value="1">Ada</option>
-                <option value="0">Tidak Ada</option>
-            </select>
+              <label for="tanggal" class="form-control-label">Tanggal Dipekerjakan</label>
+              <input class="form-control" type="date" value="2018-11-23" id="tanggal">
             </div>
             <button type="submit" class="btn bg-gradient-primary">Sumbit</button>
           </form>
