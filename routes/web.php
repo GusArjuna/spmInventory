@@ -21,6 +21,8 @@ Route::controller(JenisController::class)->group(function () {
     Route::post('/jenis/tambah', 'store');
     Route::get('/jenis/{jenis}/edit', 'edit');
     Route::patch('/jenis/{jenis}', 'update');
+    Route::delete('/jenis/{jenis}', 'destroy');
+    Route::delete('/jenis/{jenis}', 'destroy');
 });
 
 Route::controller(SukuCadangController::class)->group(function () {
@@ -29,6 +31,7 @@ Route::controller(SukuCadangController::class)->group(function () {
     Route::post('/sukucadang/tambah', 'store');
     Route::get('/sukucadang/{sukuCadang}/edit', 'edit');
     Route::patch('/sukucadang/{sukuCadang}', 'update');
+    Route::delete('/sukucadang/{sukuCadang}', 'destroy');
 });
 
 Route::controller(AlatController::class)->group(function () {
@@ -37,6 +40,7 @@ Route::controller(AlatController::class)->group(function () {
     Route::post('/alat/tambah', 'store');
     Route::get('/alat/{alat}/edit', 'edit');
     Route::patch('/alat/{alat}', 'update');
+    Route::delete('/alat/{alat}', 'destroy');
 });
 
 Route::controller(TeknisiController::class)->group(function () {
@@ -45,6 +49,7 @@ Route::controller(TeknisiController::class)->group(function () {
     Route::post('/teknisi/tambah', 'store');
     Route::get('/teknisi/{teknisi}/edit', 'edit');
     Route::patch('/teknisi/{teknisi}', 'update');
+    Route::delete('/teknisi/{teknisi}', 'destroy');
 });
 
 Route::controller(LaporanKerusakanController::class)->group(function () {
@@ -53,6 +58,7 @@ Route::controller(LaporanKerusakanController::class)->group(function () {
     Route::post('/laporankerusakan/tambah', 'store');
     Route::get('/laporankerusakan/{laporanKerusakan}/edit', 'edit');
     Route::patch('/laporankerusakan/{laporanKerusakan}', 'update');
+    Route::delete('/laporankerusakan/{laporanKerusakan}', 'destroy');
 });
 
 Route::controller(LaporanPeminjamanController::class)->group(function () {
@@ -61,6 +67,7 @@ Route::controller(LaporanPeminjamanController::class)->group(function () {
     Route::post('/laporanpeminjaman/tambah', 'store');
     Route::get('/laporanpeminjaman/{laporanPeminjaman}/edit', 'edit');
     Route::patch('/laporanpeminjaman/{laporanPeminjaman}', 'update');
+    Route::delete('/laporanpeminjaman/{laporanPeminjaman}', 'destroy');
 });
 
 Route::controller(LaporanPembelianController::class)->group(function () {
@@ -69,6 +76,7 @@ Route::controller(LaporanPembelianController::class)->group(function () {
     Route::post('/laporanpembelian/tambah', 'store');
     Route::get('/laporanpembelian/{laporanPembelian}/edit', 'edit');
     Route::patch('/laporanpembelian/{LaporanPembelian}', 'update');
+    Route::delete('/laporanpembelian/{LaporanPembelian}', 'destroy');
 });
 
 Route::controller(LaporanPenjualanController::class)->group(function () {
@@ -77,4 +85,5 @@ Route::controller(LaporanPenjualanController::class)->group(function () {
     Route::post('/laporanpenjualan/tambah', 'store');
     Route::get('/laporanpenjualan/{laporanPenjualan}/edit', 'edit');
     Route::patch('/laporanpenjualan/{laporanPenjualan}', 'update');
+    Route::delete('/laporanpenjualan/{laporanPenjualan}', 'destroy');
 });

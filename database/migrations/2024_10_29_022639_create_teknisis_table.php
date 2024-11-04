@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('teknisis', function (Blueprint $table) {
             $table->id();
+            $table->string('nomor')->unique();
+            $table->string('nama');
+            $table->string('jabatan'); 
+            $table->date('dipekerjakan');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

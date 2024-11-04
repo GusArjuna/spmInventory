@@ -13,9 +13,11 @@ class TeknisiController extends Controller
      */
     public function index()
     {
+        $teknisis = Teknisi::paginate(15);
         return view("teknisifile.index",[
             "title" => "SPM || Daftar Teknisi",
             "pages" => "Teknisi",
+            "teknisis" => $teknisis,
         ]);
     }
 
@@ -37,7 +39,16 @@ class TeknisiController extends Controller
      */
     public function store(StoreTeknisiRequest $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nomor' => ['required','unique:teknisis'],
+            'nama' => 'required',
+            'jabatan' => 'required',
+            'dipekerjakan' => 'required',
+        ]);
+        $validatedData['status'] = 1;
+
+        Teknisi::create($validatedData);
+        return redirect('/teknisi')->with('success','Data Ditambahkan');
     }
 
     /**
@@ -53,7 +64,13 @@ class TeknisiController extends Controller
      */
     public function edit(Teknisi $teknisi)
     {
-        //
+        return view("teknisifile.edit",[
+            "title" => "SPM || Edit Teknisi",
+            "pages" => "Edit Teknisi",
+            "sebelum" => "Teknisi",
+            "linkPages" => "/teknisi",
+            "teknisi" => $teknisi,
+        ]);
     }
 
     /**
@@ -61,7 +78,20 @@ class TeknisiController extends Controller
      */
     public function update(UpdateTeknisiRequest $request, Teknisi $teknisi)
     {
-        //
+        $status = (int) $request->input('status');
+        $rules = [
+            'nama' => 'required',
+            'jabatan' => 'required',
+            'dipekerjakan' => 'required',
+        ];
+        if ($request->nomor != $teknisi->nomor) {
+            $rules['nomor'] = 'required|unique:teknisis';
+        }
+        $validatedData = $request->validate($rules);   
+        $validatedData['status'] = $status;
+        Teknisi::where('id',$teknisi->id)
+                    ->update($validatedData);
+        return redirect('/teknisi')->with('success','Data Diupdate');
     }
 
     /**
@@ -69,6 +99,7 @@ class TeknisiController extends Controller
      */
     public function destroy(Teknisi $teknisi)
     {
-        //
+        Teknisi::destroy($teknisi->id);
+        return redirect('/teknisi')->with('danger','Data Dihapus');
     }
 }

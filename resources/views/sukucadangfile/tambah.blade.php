@@ -8,35 +8,45 @@
       </div>
       <div class="card-body px-0 pt-0 pb-2">
         <div class="container">
-          <form action="" method="POST">
+          <form action="/sukucadang/tambah" method="POST">
             @csrf
             <div class="form-group">
               <label for="nomor">Nomor Suku Cadang</label>
-              <input type="text" class="form-control" id="nomor" placeholder="DC06" name="nomor" required autofocus>
+              <input type="text" class="form-control @error('nomor') is-invalid @enderror" id="nomor" placeholder="DC06" name="nomor" value="{{ old('nomor') }}" required autofocus>
+              @error('nomor')
+                      <div class="alert alert-danger" style="color: white">{{ $message }}</div>
+              @enderror
             </div>
             <div class="form-group">
               <label for="nama">Nama Suku Cadang</label>
-              <input type="text" class="form-control" id="nama" placeholder="Oil" name="nama" required>
-            </div>
-            <div class="form-group">
-              <label for="sukucadang">Jenis Suku Cadang</label>
-              <select class="form-control @error('foodCategory') is-invalid @enderror" aria-label=".form-select-sm example" name="sukucadang" id="sukuCadang" required>
-                <option value="">- Pilih Salah Satu -</option>
-                {{-- @foreach ($foodCategories as $foodCategory) --}}
-                <option value="123">Kangen</option>
-                {{-- <option {{ (old('foodCategory')==$foodCategory->kode)?"selected":"" }} value="{{ $foodCategory->kode }}">{{ $foodCategory->kode }} - {{ $foodCategory->nama }}</option> --}}
-                {{-- @endforeach --}}
-            </select>
+              <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Oil" name="nama" value="{{ old('nama') }}" required>
+              @error('nama')
+                      <div class="alert alert-danger" style="color: white">{{ $message }}</div>
+              @enderror
             </div>
             <div class="form-group">
               <label for="harga">Harga Suku Cadang</label>
-              <input type="number" class="form-control" id="harga" placeholder="15000" name="harga" required>
+              <input type="number" class="form-control @error('harga') is-invalid @enderror" id="harga" placeholder="15000" name="harga" value="{{ old('harga') }}" required>
+              @error('harga')
+              <div class="alert alert-danger" style="color: white">{{ $message }}</div>
+              @enderror
             </div>
             <div class="form-group">
-              <label for="ketersediaan">Ketersediaan</label>
-              <select class="form-control @error('foodCategory') is-invalid @enderror" aria-label=".form-select-sm example" name="ketersediaan" id="ketersediaan" required>
-                <option value="1">Ada</option>
-                <option value="0">Tidak Ada</option>
+              <label for="stock">Stock Awal</label>
+              <input type="number" class="form-control @error('stock') is-invalid @enderror" id="stock" placeholder="15" name="stock" value="{{ old('stock') }}" required>
+              @error('stock')
+                      <div class="alert alert-danger" style="color: white">{{ $message }}</div>
+              @enderror
+            </div>
+            <div class="form-group">
+              <label for="jenis">Jenis Suku Cadang</label>
+              <select class="form-control @error('jenis') is-invalid @enderror" aria-label=".form-select-sm example" name="jenis" id="jenis" required>
+                <option value="">- Pilih Salah Satu -</option>
+                @foreach ($jeniss as $jenis)
+                  @if ($jenis->jenis == "Suku Cadang")
+                    <option {{ (old('jenis')==$jenis->nomor)?"selected":"" }} value="{{ $jenis->nomor }}">{{ $jenis->nomor }} - {{ $jenis->jenis }}</option>
+                  @endif
+                @endforeach
             </select>
             </div>
             <button type="submit" class="btn bg-gradient-primary">Sumbit</button>

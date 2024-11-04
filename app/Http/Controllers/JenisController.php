@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\jenis;
 use App\Http\Requests\StorejenisRequest;
 use App\Http\Requests\UpdatejenisRequest;
+use App\Models\Alat;
+use App\Models\SukuCadang;
 
 class JenisController extends Controller
 {
@@ -13,9 +15,11 @@ class JenisController extends Controller
      */
     public function index()
     {
+        $jeniss = jenis::paginate(15);
         return view("jenisfile.index",[
             "title" => "SPM || Jenis Barang",
             "pages" => "Jenis",
+            "jeniss" => $jeniss,
         ]);
     }
 
@@ -37,7 +41,14 @@ class JenisController extends Controller
      */
     public function store(StorejenisRequest $request)
     {
-        dd($request);
+        $validatedData = $request->validate([
+            'nomor' => ['required','unique:jenis'],
+            'jenis' => 'required',
+        ]);
+
+        
+        jenis::create($validatedData);
+        return redirect('/jenis')->with('success','Data Ditambahkan');
     }
 
     /**
@@ -53,7 +64,13 @@ class JenisController extends Controller
      */
     public function edit(jenis $jenis)
     {
-        //
+        return view("jenisfile.edit",[
+            "title" => "SPM || Edit Jenis",
+            "pages" => "Edit Jenis",
+            "sebelum" => "Jenis",
+            "linkPages" => "/jenis",
+            "jenis" => $jenis,
+        ]);
     }
 
     /**
@@ -61,7 +78,33 @@ class JenisController extends Controller
      */
     public function update(UpdatejenisRequest $request, jenis $jenis)
     {
-        //
+        $temp = jenis::where('nomor', '!=', $jenis->nomor)->get()->first()->nomor;
+        $rules = [
+            'jenis' => 'required',
+        ];
+        if ($request->nomor != $jenis->nomor) {
+            $rules['nomor'] = 'required|unique:jenis';
+        }     
+        $validatedData = $request->validate($rules);
+        if (SukuCadang::where('jenis', $jenis->nomor)
+        ->update(['jenis' => $temp])==1) {
+            SukuCadang::where('jenis', $jenis->nomor)
+                    ->update(['jenis' => $temp]);
+            jenis::where('id',$jenis->id)
+                    ->update($validatedData);
+            SukuCadang::where('jenis', $temp)
+                    ->update(['jenis' => $request->nomor]);
+        }
+        if (Alat::where('jenis', $jenis->nomor)
+        ->update(['jenis' => $temp])==1) {
+            Alat::where('jenis', $jenis->nomor)
+                    ->update(['jenis' => $temp]);
+            jenis::where('id',$jenis->id)
+                    ->update($validatedData);
+            Alat::where('jenis', $temp)
+                    ->update(['jenis' => $request->nomor]);
+        }
+        return redirect('/jenis')->with('success','Data Diubah');
     }
 
     /**
@@ -69,6 +112,7 @@ class JenisController extends Controller
      */
     public function destroy(jenis $jenis)
     {
-        //
+        jenis::destroy($jenis->id);
+        return redirect('/jenis')->with('danger','Data Dihapus');
     }
 }
