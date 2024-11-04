@@ -4,8 +4,8 @@
   <div class="col-12">
     <div class="card mb-4">
       <div class="card-header pb-0 d-flex justify-content-between align-items-center" style="width: 1150px">
-        <h6>Laporan Kerusakan</h6>
-        <a href="{{ url('/laporankerusakan/tambah') }}"  class="mdc-button mdc-menu-button mdc-button--raised icon-button shaped-button secondary-filled-button mr-4">
+        <h6>Laporan Penjualan</h6>
+        <a href="{{ url('/laporanpenjualan/tambah') }}"  class="mdc-button mdc-menu-button mdc-button--raised icon-button shaped-button secondary-filled-button mr-4">
           <i class="fas fa-plus text-success text-lg"></i>
         </a>
       </div>
@@ -33,7 +33,7 @@
         @endif
       <div class="card-body px-0 pt-0 pb-2">
         <div class="container">
-          {{ $laporanKerusakans->links('vendor.pagination.pagination-template') }}
+          {{ $laporanPenjualans->links('vendor.pagination.pagination-template') }}
         </div>
         <div class="table-responsive p-0">
           <table class="table align-items-center mb-0">
@@ -50,34 +50,34 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($laporanKerusakans as $laporanKerusakan)
+              @foreach ($laporanPenjualans as $laporanPenjualan)
                 <tr>
                   <td>
                     <div class="d-flex px-2 py-1">
                       <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">{{ $laporanKerusakan->nomor }}</h6>
+                        <h6 class="mb-0 text-sm">{{ $laporanPenjualan->nomor }}</h6>
                       </div>
                     </div>
                   </td>
                   <td>
-                    <p class="text-sm font-weight-bold mb-0">{{ $laporanKerusakan->alats->nama }}</p>
-                    <p class="text-xs text-secondary mb-0">{{ $laporanKerusakan->alats->nomor . ' - ' . $laporanKerusakan->alats->jeniss->nomor }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $laporanPenjualan->alats->nama }}</p>
+                    <p class="text-xs text-secondary mb-0">{{ $laporanPenjualan->alats->nomor . ' - ' . $laporanPenjualan->alats->jeniss->nomor }}</p>
                   </td>
                   <td>
-                    <p class="text-sm font-weight-bold mb-0">{{ $laporanKerusakan->teknisis->nama }}</p>
-                    <p class="text-xs text-secondary mb-0">{{ $laporanKerusakan->teknisis->jabatan }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $laporanPenjualan->teknisis->nama }}</p>
+                    <p class="text-xs text-secondary mb-0">{{ $laporanPenjualan->teknisis->jabatan }}</p>
                   </td>
                   <td>
-                    <p class="text-sm font-weight-bold mb-0">{{ $laporanKerusakan->jumlah }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $laporanPenjualan->jumlah }}</p>
                   </td>
                   <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">{{ $laporanKerusakan->tanggalLapor }}</span>
+                    <span class="text-secondary text-xs font-weight-bold">{{ $laporanPenjualan->tanggalLapor }}</span>
                   </td>
                   <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">{{ $laporanKerusakan->tanggalSelesai }}</span>
+                    <span class="text-secondary text-xs font-weight-bold">{{ $laporanPenjualan->tanggalSelesai }}</span>
                   </td>
                   <td class="align-middle text-center text-sm">
-                    @if ($laporanKerusakan->status==1)
+                    @if ($laporanPenjualan->status==1)
                           <span class="badge badge-sm bg-gradient-success">
                             Sudah Diperbaiki
                           </span>
@@ -88,11 +88,11 @@
                       @endif
                   </td>
                   <td class="align-middle">
-                    <a href="/laporankerusakan/{{ $laporanKerusakan->id }}/edit" class="text-success font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                    <a href="/laporanpenjualan/{{ $laporanPenjualan->id }}/edit" class="text-success font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                       Edit
                     </a>
                     |
-                    <form action="/laporankerusakan/{{ $laporanKerusakan->id }}" method="post" class="d-inline">
+                    <form action="/laporanpenjualan/{{ $laporanPenjualan->id }}" method="post" class="d-inline">
                       @csrf
                       @method('delete')
                       <button type="submit" class="text-danger font-weight-bold text-xs border-0" onclick="return confirm('Hapus Data?')" style="background-color: transparent;" data-toggle="tooltip" data-original-title="Hapus user">

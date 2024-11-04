@@ -13,9 +13,11 @@ class LaporanPenjualanController extends Controller
      */
     public function index()
     {
+        $laporanPenjualans = LaporanPenjualan::paginate(15);
         return view("laporanpenjualanfile.index",[
             "title" => "SPM || Laporan Penjualan",
             "pages" => "Laporan Penjualan",
+            "laporanPenjualans" => $laporanPenjualans,
         ]);
     }
 
