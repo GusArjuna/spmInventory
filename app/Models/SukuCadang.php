@@ -17,4 +17,7 @@ class SukuCadang extends Model
     public function alats(){
         return $this->belongsTo(Alat::class, 'jenis', 'nomor');
     }
+    public function penjualans(){
+        return $this->hasMany(LaporanPenjualan::class, 'nama', 'nomor');
+    }
 }

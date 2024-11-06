@@ -9,7 +9,16 @@ use App\Http\Controllers\LaporanPeminjamanController;
 use App\Http\Controllers\LaporanPenjualanController;
 use App\Http\Controllers\SukuCadangController;
 use App\Http\Controllers\TeknisiController;
+use App\Http\Controllers\WagnerController;
 use Illuminate\Support\Facades\Route;
+
+Route::fallback(function () {
+    return redirect('/home');
+});
+
+Route::controller(WagnerController::class)->group(function () {
+    Route::get('/wagner', 'index');
+});
 
 Route::controller(DashboardControlller::class)->group(function () {
     // Route::get('/home', 'index')->middleware('auth');
