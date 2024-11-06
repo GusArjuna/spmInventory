@@ -14,8 +14,8 @@ class Alat extends Model
         'stock',
     ];
     
-    public function jeniss(){
-        return $this->belongsTo(Jenis::class, 'jenis', 'nomor');
+    public function sukuCadangs(){
+        return $this->belongsTo(SukuCadang::class, 'jenis', 'nomor');
     }
     public function laporanPeminjaman(){
         return $this->hasMany(laporanPeminjaman::class, 'nama', 'nomor');

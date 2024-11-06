@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SukuCadang;
 use App\Http\Requests\StoreSukuCadangRequest;
 use App\Http\Requests\UpdateSukuCadangRequest;
+use App\Models\Alat;
 use App\Models\jenis;
 
 class SukuCadangController extends Controller
@@ -27,13 +28,13 @@ class SukuCadangController extends Controller
      */
     public function create()
     {
-        $jeniss = jenis::all();
+        $alats = Alat::all();
         return view("sukucadangfile.tambah",[
             "title" => "SPM || Tambah Suku Cadang",
             "pages" => "Tambah Suku Cadang",
             "sebelum" => "Suku Cadang",
             "linkPages" => "/sukucadang",
-            "jeniss" => $jeniss,
+            "alats" => $alats,
         ]);
     }
 
@@ -69,13 +70,13 @@ class SukuCadangController extends Controller
      */
     public function edit(SukuCadang $sukuCadang)
     {
-        $jeniss = jenis::all();
+        $alats = Alat::all();
         return view("sukucadangfile.edit",[
             "title" => "SPM || Edit Suku Cadang",
             "pages" => "Edit Suku Cadang",
             "sebelum" => "Suku Cadang",
             "linkPages" => "/sukucadang",
-            "jeniss" => $jeniss,
+            "alats" => $alats,
             "sukuCadang" => $sukuCadang,
         ]);
     }

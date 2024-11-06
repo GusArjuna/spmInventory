@@ -40,11 +40,10 @@
             <thead>
               <tr>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nomor Laporan</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama Alat</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama Teknisi</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama Suku Cadang</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Jumlah</th>
-                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tanggal Dilaporkan</th>
-                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tanggal Diperbaiki</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Harga</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tanggal</th>
                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                 <th class="text-secondary opacity-7"></th>
               </tr>
@@ -55,37 +54,21 @@
                   <td>
                     <div class="d-flex px-2 py-1">
                       <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">{{ $laporanPenjualan->nomor }}</h6>
+                        <h6 class="mb-0 text-sm" style="padding-left: 10px">{{ $laporanPenjualan->nomor }}</h6>
                       </div>
                     </div>
                   </td>
                   <td>
-                    <p class="text-sm font-weight-bold mb-0">{{ $laporanPenjualan->alats->nama }}</p>
-                    <p class="text-xs text-secondary mb-0">{{ $laporanPenjualan->alats->nomor . ' - ' . $laporanPenjualan->alats->jeniss->nomor }}</p>
-                  </td>
-                  <td>
-                    <p class="text-sm font-weight-bold mb-0">{{ $laporanPenjualan->teknisis->nama }}</p>
-                    <p class="text-xs text-secondary mb-0">{{ $laporanPenjualan->teknisis->jabatan }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $laporanPenjualan->sukuCadangs->nama }}</p>
                   </td>
                   <td>
                     <p class="text-sm font-weight-bold mb-0">{{ $laporanPenjualan->jumlah }}</p>
                   </td>
                   <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">{{ $laporanPenjualan->tanggalLapor }}</span>
+                    <span class="text-secondary text-xs font-weight-bold">{{ $laporanPenjualan->harga }}</span>
                   </td>
                   <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">{{ $laporanPenjualan->tanggalSelesai }}</span>
-                  </td>
-                  <td class="align-middle text-center text-sm">
-                    @if ($laporanPenjualan->status==1)
-                          <span class="badge badge-sm bg-gradient-success">
-                            Sudah Diperbaiki
-                          </span>
-                      @else
-                          <span class="badge badge-sm bg-gradient-danger">
-                            Sedang Diperbaiki
-                          </span>
-                      @endif
+                    <span class="text-secondary text-xs font-weight-bold">{{ $laporanPenjualan->tanggal }}</span>
                   </td>
                   <td class="align-middle">
                     <a href="/laporanpenjualan/{{ $laporanPenjualan->id }}/edit" class="text-success font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">

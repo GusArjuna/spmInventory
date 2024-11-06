@@ -11,13 +11,13 @@
           <form action="/alat/tambah" method="POST">
             @csrf
             <div class="form-group">
-              <label for="nomor">Nomor Alat</label>
+              <label for="nomor">Nama Alat</label>
               <input type="text" class="form-control @error('nomor') is-invalid @enderror" id="nomor" placeholder="DC06" name="nomor" value="{{ old('nomor') }}" required autofocus>
               @error('nomor')
                       <div class="alert alert-danger" style="color: white">{{ $message }}</div>
               @enderror
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
               <label for="nama">Nama Alat</label>
               <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Oil" name="nama" value="{{ old('nama') }}" required>
               @error('nama')
@@ -30,7 +30,7 @@
               @error('harga')
               <div class="alert alert-danger" style="color: white">{{ $message }}</div>
               @enderror
-            </div>
+            </div> --}}
             <div class="form-group">
               <label for="stock">Stock Awal</label>
               <input type="number" class="form-control @error('stock') is-invalid @enderror" id="stock" placeholder="15" name="stock" value="{{ old('stock') }}" required>
@@ -38,7 +38,7 @@
                       <div class="alert alert-danger" style="color: white">{{ $message }}</div>
               @enderror
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
               <label for="jenis">Jenis Alat</label>
               <select class="form-control @error('jenis') is-invalid @enderror" aria-label=".form-select-sm example" name="jenis" id="jenis" required>
                 <option value="">- Pilih Salah Satu -</option>
@@ -48,7 +48,7 @@
                   @endif
                 @endforeach
             </select>
-            </div>
+            </div> --}}
             <button type="submit" class="btn bg-gradient-primary">Sumbit</button>
           </form>
         </div>

@@ -41,7 +41,8 @@
               <label for="nama">Barang Yang Rusak</label>
               <select class="form-control @error('nama') is-invalid @enderror" aria-label=".form-select-sm example" name="nama" id="nama" required>
                 @foreach ($alats as $alat)
-                    <option {{ (old('nama',$laporanKerusakan->nama)==$alat->nomor)?"selected":"" }} value="{{ $alat->nomor }}">{{ $alat->nomor }} - {{ $alat->nama }}</option>
+                    <option {{ (old('nama',$laporanKerusakan->nama)==$alat->nomor)?"selected":"" }} value="{{ $alat->nomor }}">{{ $alat->nomor }}</option>
+                    {{-- <option {{ (old('nama',$laporanKerusakan->nama)==$alat->nomor)?"selected":"" }} value="{{ $alat->nomor }}">{{ $alat->nomor }} - {{ $alat->nama }}</option> --}}
                 @endforeach
             </select>
             </div>

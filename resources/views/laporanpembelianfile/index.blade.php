@@ -40,12 +40,9 @@
             <thead>
               <tr>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nomor Laporan</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama Alat</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama Teknisi</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama Suku Cadang</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Jumlah</th>
-                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tanggal Dilaporkan</th>
-                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tanggal Diperbaiki</th>
-                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tanggal</th>
                 <th class="text-secondary opacity-7"></th>
               </tr>
             </thead>
@@ -55,37 +52,18 @@
                   <td>
                     <div class="d-flex px-2 py-1">
                       <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">{{ $laporanPembelian->nomor }}</h6>
+                        <h6 class="mb-0 text-sm" style="padding-left: 10px">{{ $laporanPembelian->nomor }}</h6>
                       </div>
                     </div>
                   </td>
                   <td>
-                    <p class="text-sm font-weight-bold mb-0">{{ $laporanPembelian->alats->nama }}</p>
-                    <p class="text-xs text-secondary mb-0">{{ $laporanPembelian->alats->nomor . ' - ' . $laporanPembelian->alats->jeniss->nomor }}</p>
-                  </td>
-                  <td>
-                    <p class="text-sm font-weight-bold mb-0">{{ $laporanPembelian->teknisis->nama }}</p>
-                    <p class="text-xs text-secondary mb-0">{{ $laporanPembelian->teknisis->jabatan }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $laporanPembelian->sukuCadangs->nama }}</p>
                   </td>
                   <td>
                     <p class="text-sm font-weight-bold mb-0">{{ $laporanPembelian->jumlah }}</p>
                   </td>
                   <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">{{ $laporanPembelian->tanggalLapor }}</span>
-                  </td>
-                  <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">{{ $laporanPembelian->tanggalSelesai }}</span>
-                  </td>
-                  <td class="align-middle text-center text-sm">
-                    @if ($laporanPembelian->status==1)
-                          <span class="badge badge-sm bg-gradient-success">
-                            Sudah Diperbaiki
-                          </span>
-                      @else
-                          <span class="badge badge-sm bg-gradient-danger">
-                            Sedang Diperbaiki
-                          </span>
-                      @endif
+                    <span class="text-secondary text-xs font-weight-bold">{{ $laporanPembelian->tanggal }}</span>
                   </td>
                   <td class="align-middle">
                     <a href="/laporanpembelian/{{ $laporanPembelian->id }}/edit" class="text-success font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">

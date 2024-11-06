@@ -43,10 +43,8 @@
               <label for="jenis">Jenis Suku Cadang</label>
               <select class="form-control @error('jenis') is-invalid @enderror" aria-label=".form-select-sm example" name="jenis" id="jenis" required>
                 <option value="">- Pilih Salah Satu -</option>
-                @foreach ($jeniss as $jenis)
-                  @if ($jenis->jenis == "Suku Cadang")
-                    <option {{ (old('jenis',$sukuCadang->jenis)==$jenis->nomor)?"selected":"" }} value="{{ $jenis->nomor }}">{{ $jenis->nomor }} - {{ $jenis->jenis }}</option>
-                  @endif
+                @foreach ($alats as $alat)
+                  <option {{ (old('jenis',$sukuCadang->jenis)==$alat->nomor)?"selected":"" }} value="{{ $alat->nomor }}">{{ $alat->nomor }}</option>
                 @endforeach
               </select>
             </div>

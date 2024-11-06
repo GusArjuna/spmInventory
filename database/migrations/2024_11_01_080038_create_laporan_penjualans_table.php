@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('laporan_penjualans', function (Blueprint $table) {
             $table->id();
+            $table->string('nomor')->unique();
+            $table->string('nama');
+            $table->integer('jumlah'); 
+            $table->integer('harga'); 
+            $table->date('tanggal');
             $table->timestamps();
+
+            $table->foreign('nama')->references('nomor')->on('suku_cadangs')->onDelete('cascade');
         });
     }
 

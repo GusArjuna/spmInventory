@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\jenis;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class JenisSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,15 +14,13 @@ class JenisSeeder extends Seeder
     public function run(): void
     {
         $data = [
-            
-
-            // Tambahkan baris data lain di sini jika diperlukan
+            ['Admin','$2y$12$neYQITnt0Ks4a6Hw.F6PWu526RynJgyyeM5lD3717IjOZ5mRpWKEq','on'],
         ];
 
         foreach ($data as $item) {
-            jenis::create([
-                'nomor' => $item[0],
-                'jenis' => $item[1],
+            User::create([
+                'username' => $item[0],
+                'password' => $item[1],
             ]);
         }
     }

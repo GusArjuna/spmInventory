@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             AlatSeeder::class,
             SukuCadangSeeder::class,
             TeknisiSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

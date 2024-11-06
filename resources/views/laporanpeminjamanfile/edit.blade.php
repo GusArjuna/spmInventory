@@ -38,7 +38,7 @@
             </div>
             <div class="form-group">
               <label for="jumlah">Jumlah</label>
-              <input type="text" class="form-control @error('jumlah') is-invalid @enderror" id="jumlah" placeholder="John" name="jumlah" value="{{ old('jumlah',$laporanPeminjaman->jumlah) }}" required>
+              <input type="number" class="form-control @error('jumlah') is-invalid @enderror" id="jumlah" placeholder="15" name="jumlah" value="{{ old('jumlah',$laporanPeminjaman->jumlah) }}" required>
               @error('jumlah')
                       <div class="alert alert-danger" style="color: white">{{ $message }}</div>
               @enderror
@@ -47,6 +47,7 @@
               <label for="nama">Barang Yang Dipinjam</label>
               <select class="form-control @error('nama') is-invalid @enderror" aria-label=".form-select-sm example" name="nama" id="nama" required>
                 @foreach ($alats as $alat)
+                    <option {{ (old('nama',$laporanPeminjaman->nama)==$alat->nomor)?"selected":"" }} value="{{ $alat->nomor }}">{{ $alat->nomor }}</option>
                     <option {{ (old('nama',$laporanPeminjaman->nama)==$alat->nomor)?"selected":"" }} value="{{ $alat->nomor }}">{{ $alat->nomor }} - {{ $alat->nama }}</option>
                 @endforeach
             </select>

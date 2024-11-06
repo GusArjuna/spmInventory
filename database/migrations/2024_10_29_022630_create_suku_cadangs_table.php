@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('stock');
             $table->timestamps();
         
-            $table->foreign('jenis')->references('nomor')->on('jenis')->onDelete('cascade');
+            $table->foreign('jenis')->references('nomor')->on('alats')->onDelete('cascade');
         });
     }
 

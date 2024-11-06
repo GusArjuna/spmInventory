@@ -19,7 +19,7 @@
       @endif
       <div class="card-body px-0 pt-0 pb-2">
         <div class="container">
-          <form action="/laporankerusakan/tambah" method="POST">
+          <form action="/laporanpenjualan/tambah" method="POST">
             @csrf
             <div class="form-group">
               <label for="nomor">Nomor Laporan</label>
@@ -29,18 +29,10 @@
               @enderror
             </div>
             <div class="form-group">
-              <label for="teknisi">Nama Teknisi</label>
-              <select class="form-control @error('teknisi') is-invalid @enderror" aria-label=".form-select-sm example" name="teknisi" id="teknisi" required>
-                @foreach ($teknisis as $teknisi)
-                    <option {{ (old('teknisi')==$teknisi->nomor)?"selected":"" }} value="{{ $teknisi->nomor }}">{{ $teknisi->nomor }} - {{ $teknisi->nama }}</option>
-                @endforeach
-            </select>
-            </div>
-            <div class="form-group">
-              <label for="nama">Barang Yang Rusak</label>
+              <label for="nama">Suku Cadang</label>
               <select class="form-control @error('nama') is-invalid @enderror" aria-label=".form-select-sm example" name="nama" id="nama" required>
-                @foreach ($alats as $alat)
-                    <option {{ (old('nama')==$alat->nomor)?"selected":"" }} value="{{ $alat->nomor }}">{{ $alat->nomor }} - {{ $alat->nama }}</option>
+                @foreach ($sukuCadangs as $sukuCadang)
+                    <option {{ (old('nama')==$sukuCadang->nomor)?"selected":"" }} value="{{ $sukuCadang->nomor }}" data-harga="{{ $sukuCadang->harga }}">{{ $sukuCadang->jenis }} - {{ $sukuCadang->nomor }} - {{ $sukuCadang->nama }}</option>
                 @endforeach
             </select>
             </div>
@@ -51,6 +43,10 @@
                       <div class="alert alert-danger" style="color: white">{{ $message }}</div>
               @enderror
             </div>
+            <div class="form-group">
+              <label for="harga">Harga</label>
+              <input type="number" class="form-control @error('harga') is-invalid @enderror" id="harga" placeholder="" name="harga" value="" readonly>
+            </div>
             <button type="submit" class="btn bg-gradient-primary">Sumbit</button>
           </form>
         </div>
@@ -58,4 +54,26 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('javascript')
+    <script>
+      $(document).ready(function() {
+      $('#nama').on('change', function() {
+          var hargaSukuCadang = $(this).find('option:selected').attr('data-harga'); 
+          var jumlah = $(this).closest('.row').find('#jumlah').val();
+          var totalHarga = jumlah*hargaSukuCadang;
+          $('#harga').val(totalHarga);
+
+      });
+
+      $('#jumlah').on('keyup', function() {
+        var hargaSukuCadang = $('#nama').find('option:selected').attr('data-harga');
+        var jumlah = $(this).val();
+        var totalHarga = jumlah*hargaSukuCadang;
+        $('#harga').val(totalHarga);
+      });
+});
+
+    </script>
 @endsection

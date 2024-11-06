@@ -12,7 +12,13 @@ use App\Http\Controllers\TeknisiController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(DashboardControlller::class)->group(function () {
+    // Route::get('/home', 'index')->middleware('auth');
     Route::get('/home', 'index');
+    Route::get('/login', 'indexLogin')->middleware('guest')->name('login');
+    Route::post('/login', 'loginAccount')->middleware('guest');
+    Route::get('/register', 'indexRegister')->middleware('guest');
+    Route::post('/register', 'registerAccount')->middleware('guest');
+    Route::post('/logout', 'logout');
 });
 
 Route::controller(JenisController::class)->group(function () {
@@ -21,7 +27,6 @@ Route::controller(JenisController::class)->group(function () {
     Route::post('/jenis/tambah', 'store');
     Route::get('/jenis/{jenis}/edit', 'edit');
     Route::patch('/jenis/{jenis}', 'update');
-    Route::delete('/jenis/{jenis}', 'destroy');
     Route::delete('/jenis/{jenis}', 'destroy');
 });
 
@@ -75,8 +80,8 @@ Route::controller(LaporanPembelianController::class)->group(function () {
     Route::get('/laporanpembelian/tambah', 'create');
     Route::post('/laporanpembelian/tambah', 'store');
     Route::get('/laporanpembelian/{laporanPembelian}/edit', 'edit');
-    Route::patch('/laporanpembelian/{LaporanPembelian}', 'update');
-    Route::delete('/laporanpembelian/{LaporanPembelian}', 'destroy');
+    Route::patch('/laporanpembelian/{laporanPembelian}', 'update');
+    Route::delete('/laporanpembelian/{laporanPembelian}', 'destroy');
 });
 
 Route::controller(LaporanPenjualanController::class)->group(function () {

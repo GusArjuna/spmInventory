@@ -62,8 +62,8 @@
                   <p class="text-xs font-weight-bold mb-0">{{ $sukuCadang->nama }}</p>
                 </td>
                 <td>
-                  <p class="text-xs font-weight-bold mb-0">{{ $sukuCadang->jeniss->nomor }}</p>
-                  <p class="text-xs text-secondary mb-0">{{ $sukuCadang->jeniss->jenis }}</p>
+                  <p class="text-xs font-weight-bold mb-0">{{ $sukuCadang->alats->nomor }}</p>
+                  {{-- <p class="text-xs text-secondary mb-0">{{ $sukuCadang->jeniss->jenis }}</p> --}}
                 </td>
                 <td>
                   <p class="text-xs font-weight-bold mb-0">{{ $sukuCadang->harga }}</p>

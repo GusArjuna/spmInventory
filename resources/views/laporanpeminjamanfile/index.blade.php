@@ -60,7 +60,7 @@
                     </div>
                   </td>
                   <td>
-                    <p class="text-sm font-weight-bold mb-0">{{ $laporanPeminjaman->alats->nama }}</p>
+                    {{-- <p class="text-sm font-weight-bold mb-0">{{ $laporanPeminjaman->alats->nama }}</p> --}}
                     <p class="text-xs text-secondary mb-0">{{ $laporanPeminjaman->alats->nomor }}</p>
                   </td>
                   <td>

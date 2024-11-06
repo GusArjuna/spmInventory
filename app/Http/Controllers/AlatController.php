@@ -27,13 +27,13 @@ class AlatController extends Controller
      */
     public function create()
     {
-        $jeniss = jenis::all();
+        // $jeniss = jenis::all();
         return view("alatfile.tambah",[
             "title" => "SPM || Tambah Alat",
             "pages" => "Tambah Alat",
             "sebelum" => "Alat",
             "linkPages" => "/alat",
-            "jeniss" => $jeniss,
+            // "jeniss" => $jeniss,
         ]);
     }
 
@@ -42,15 +42,15 @@ class AlatController extends Controller
      */
     public function store(StoreAlatRequest $request)
     {
-        $harga = (int) $request->input('harga');
+        // $harga = (int) $request->input('harga');
         $validatedData = $request->validate([
             'nomor' => ['required','unique:alats'],
-            'nama' => 'required',
-            'jenis' => 'required',
-            'harga' => 'required',
+            // 'nama' => 'required',
+            // 'jenis' => 'required',
+            // 'harga' => 'required',
             'stock' => 'required',
         ]);
-        $validatedData['harga'] = $harga;
+        // $validatedData['harga'] = $harga;
         
         
         Alat::create($validatedData);
@@ -70,13 +70,13 @@ class AlatController extends Controller
      */
     public function edit(Alat $alat)
     {
-        $jeniss = jenis::all();
+        // $jeniss = jenis::all();
         return view("alatfile.edit",[
             "title" => "SPM || Edit Alat",
             "pages" => "Edit Alat",
             "sebelum" => "Alat",
             "linkPages" => "/alat",
-            "jeniss" => $jeniss,
+            // "jeniss" => $jeniss,
             "alat" => $alat,
         ]);
     }
@@ -86,18 +86,18 @@ class AlatController extends Controller
      */
     public function update(UpdateAlatRequest $request, Alat $alat)
     {
-        $harga = (int) $request->input('harga');
+        // $harga = (int) $request->input('harga');
         $rules = [
-            'nama' => 'required',
-            'jenis' => 'required',
-            'harga' => 'required',
+            // 'nama' => 'required',
+            // 'jenis' => 'required',
+            // 'harga' => 'required',
             'stock' => 'required',
         ];
         if ($request->nomor != $alat->nomor) {
             $rules['nomor'] = 'required|unique:alats';
         }
         $validatedData = $request->validate($rules);   
-        $validatedData['harga'] = $harga;
+        // $validatedData['harga'] = $harga;
         Alat::where('id',$alat->id)
                     ->update($validatedData);
         return redirect('/alat')->with('success','Data Diupdate');

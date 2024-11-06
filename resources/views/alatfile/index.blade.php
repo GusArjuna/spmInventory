@@ -36,10 +36,10 @@
           <table class="table align-items-center mb-0">
             <thead>
               <tr>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nomor</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama</th>
+                {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Jenis</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">harga</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">harga</th> --}}
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Stock</th>
                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                 <th class="text-secondary opacity-7"></th>
@@ -55,7 +55,7 @@
                     </div>
                   </div>
                 </td>
-                <td class="text-sm">
+                {{-- <td class="text-sm">
                   <p class="text-sm font-weight-bold mb-0">{{ $alat->nama }}</p>
                 </td>
                 <td class="text-sm">
@@ -64,7 +64,7 @@
                 </td>
                 <td class="text-sm">
                   <p class="text-sm font-weight-bold mb-0">{{ $alat->harga }}</p>
-                </td>
+                </td> --}}
                 <td class="text-sm">
                   <p class="text-sm font-weight-bold mb-0">{{ $alat->stock }}</p>
                 </td>

@@ -50,12 +50,12 @@
           </a>
           <div class="collapse" id="colapse">
             <ul class="nav flex-column ms-3">
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link {{ ($pages == 'Jenis') ? 'active' : '' }}" href="/jenis">
                       <i class="fas fa-boxes text-primary text-sm opacity-10"></i>
                       Jenis Barang
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link {{ ($pages == 'Suku Cadang') ? 'active' : '' }}" href="/sukucadang">
                       <i class="fas fa-truck-loading text-primary text-sm opacity-10"></i>
@@ -113,12 +113,16 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account Setting</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{ url('pages/sign-in.html') }}">
+          <form id="logout-form" action="/logout" method="post" style="display: none;">
+            @csrf
+          </form>
+        
+          <button class="nav-link-text ms-1" style="background-color: transparent; border: none; display: flex; align-items: center;padding-left:20px;" onclick="confirmLogout()">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fas fa-sign-out-alt text-warning text-sm opacity-10"></i>
+                <i class="fas fa-sign-out-alt text-warning text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Log out</span>
-          </a>
+            <span>Log out</span>
+          </button>
         </li>
       </ul>
     </div>
@@ -297,10 +301,31 @@
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    function confirmLogout(){
+      Swal.fire({
+            title: 'Are you sure?',
+            text: "You are about to log out!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, log out',
+            cancelButtonText: 'Cancel',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Submit the logout form
+                document.getElementById('logout-form').submit();
+            }
+        });
+    }
+  </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="{{ url('js/argon-dashboard.js') }}"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  @yield('javascript')
 </body>
 
 </html>

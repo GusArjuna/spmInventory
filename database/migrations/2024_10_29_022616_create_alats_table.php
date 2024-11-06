@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('alats', function (Blueprint $table) {
             $table->id();
             $table->string('nomor')->unique();
-            $table->string('nama');
-            $table->string('jenis'); 
-            $table->integer('harga');
+            // $table->string('nama');
+            // $table->string('jenis'); 
+            // $table->integer('harga');
             $table->integer('stock');
             $table->timestamps();
         
-            $table->foreign('jenis')->references('nomor')->on('jenis')->onDelete('cascade');
+            // $table->foreign('jenis')->references('nomor')->on('jenis')->onDelete('cascade');
         });
     }
 

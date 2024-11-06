@@ -55,13 +55,13 @@
                   <td>
                     <div class="d-flex px-2 py-1">
                       <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">{{ $laporanKerusakan->nomor }}</h6>
+                        <h6 class="mb-0 text-sm" style="padding-left: 5px">{{ $laporanKerusakan->nomor }}</h6>
                       </div>
                     </div>
                   </td>
                   <td>
-                    <p class="text-sm font-weight-bold mb-0">{{ $laporanKerusakan->alats->nama }}</p>
-                    <p class="text-xs text-secondary mb-0">{{ $laporanKerusakan->alats->nomor . ' - ' . $laporanKerusakan->alats->jeniss->nomor }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $laporanKerusakan->alats->nomor }}</p>
+                    {{-- <p class="text-xs text-secondary mb-0">{{ $laporanKerusakan->alats->nomor . ' - ' . $laporanKerusakan->alats->jeniss->nomor }}</p> --}}
                   </td>
                   <td>
                     <p class="text-sm font-weight-bold mb-0">{{ $laporanKerusakan->teknisis->nama }}</p>

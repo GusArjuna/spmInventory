@@ -14,7 +14,7 @@ class SukuCadang extends Model
         'stock',
     ];
     
-    public function jeniss(){
-        return $this->belongsTo(Jenis::class, 'jenis', 'nomor');
+    public function alats(){
+        return $this->belongsTo(Alat::class, 'jenis', 'nomor');
     }
 }

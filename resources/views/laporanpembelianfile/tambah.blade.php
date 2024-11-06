@@ -19,7 +19,7 @@
       @endif
       <div class="card-body px-0 pt-0 pb-2">
         <div class="container">
-          <form action="/laporankerusakan/tambah" method="POST">
+          <form action="/laporanpembelian/tambah" method="POST">
             @csrf
             <div class="form-group">
               <label for="nomor">Nomor Laporan</label>
@@ -29,18 +29,10 @@
               @enderror
             </div>
             <div class="form-group">
-              <label for="teknisi">Nama Teknisi</label>
-              <select class="form-control @error('teknisi') is-invalid @enderror" aria-label=".form-select-sm example" name="teknisi" id="teknisi" required>
-                @foreach ($teknisis as $teknisi)
-                    <option {{ (old('teknisi')==$teknisi->nomor)?"selected":"" }} value="{{ $teknisi->nomor }}">{{ $teknisi->nomor }} - {{ $teknisi->nama }}</option>
-                @endforeach
-            </select>
-            </div>
-            <div class="form-group">
-              <label for="nama">Barang Yang Rusak</label>
+              <label for="nama">Suku Cadang</label>
               <select class="form-control @error('nama') is-invalid @enderror" aria-label=".form-select-sm example" name="nama" id="nama" required>
-                @foreach ($alats as $alat)
-                    <option {{ (old('nama')==$alat->nomor)?"selected":"" }} value="{{ $alat->nomor }}">{{ $alat->nomor }} - {{ $alat->nama }}</option>
+                @foreach ($sukuCadangs as $sukuCadangs)
+                    <option {{ (old('nama')==$sukuCadangs->nomor)?"selected":"" }} value="{{ $sukuCadangs->nomor }}">{{ $sukuCadangs->jenis }} - {{ $sukuCadangs->nomor }} - {{ $sukuCadangs->nama }}</option>
                 @endforeach
             </select>
             </div>
