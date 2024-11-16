@@ -4,10 +4,7 @@
   <div class="col-12">
     <div class="card mb-4">
       <div class="card-header pb-0 d-flex justify-content-between align-items-center" style="width: 1150px">
-        <h6>Algoritma Wagner Whitin</h6>
-        <a href="{{ url('/wagner/tambah') }}"  class="mdc-button mdc-menu-button mdc-button--raised icon-button shaped-button secondary-filled-button mr-4">
-          <i class="fas fa-plus text-success text-lg"></i>
-        </a>
+        <h6>Algoritma Wagner Within</h6>
       </div>
       @if (session()->has('success'))
         <div class="container">
@@ -39,11 +36,14 @@
           <table class="table align-items-center mb-0">
             <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nomor</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Penjualan Bulan Lalu</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Penjualan Bulan ini</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Restock Untuk Bulan Depan</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Harga Bahan Baku</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Holding Cost</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Biaya Pemesanan</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Demand Periode 1</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Demand Periode 2</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Demand Periode 3</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Wagner Within</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,21 +52,31 @@
                   <td>
                     <div class="d-flex px-2 py-1">
                       <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm" style="padding-left: 10px;">{{ $wagner->nomor }}</h6>
+                        <h6 class="text-sm font-weight-bold mb-0" style="padding-left: 10px;">{{ $wagner->sukuCadangs->nama }}</h6>
+                        <h6 class="mb-0 text-xs" style="padding-left: 10px;">{{ $wagner->sukuCadangs->nomor }}</h6>
                       </div>
                     </div>
                   </td>
-                    <td class="text-sm">
-                      <p class="text-sm font-weight-bold mb-0">{{ $wagner->nama }}</p>
-                    </td>
-                    <td class="text-sm">
-                      <p class="text-sm font-weight-bold mb-0">{{ $wagner->lalu }}</p>
-                    </td>
-                    <td class="text-sm">
-                      <p class="text-sm font-weight-bold mb-0">{{ $wagner->ini }}</p>
-                    </td>
-                    <td class="align-middle text-center text-sm">
-                      <p class="text-sm font-weight-bold mb-0">{{ $wagner->restock }}</p>
+                  <td class="text-sm">
+                    <p class="text-sm font-weight-bold mb-0">{{ $wagner->sukuCadangs->harga }}</p>
+                  </td>
+                  <td class="text-sm">
+                    <p class="text-sm font-weight-bold mb-0">{{ $wagner->sukuCadangs->holdingCosts }}</p>
+                  </td>
+                  <td class="text-sm">
+                    <p class="text-sm font-weight-bold mb-0">{{ $wagner->sukuCadangs->biayaPemesanan }}</p>
+                  </td>
+                  <td class="text-sm">
+                    <p class="text-sm font-weight-bold mb-0">{{ $wagner->periode1 }}</p>
+                  </td>
+                  <td class="text-sm">
+                    <p class="text-sm font-weight-bold mb-0">{{ $wagner->periode2 }}</p>
+                  </td>
+                  <td class="text-sm">
+                    <p class="text-sm font-weight-bold mb-0">{{ $wagner->periode3 }}</p>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <p class="text-sm font-weight-bold mb-0">Rp. {{ $wagner->ww }}</p>
                   </td>
                 </tr>
                 @endforeach

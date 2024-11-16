@@ -44,6 +44,7 @@
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Jenis</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Harga</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Stock</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Wagner Within</th>
                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                 <th class="text-secondary opacity-7"></th>
               </tr>
@@ -70,6 +71,9 @@
                 </td>
                 <td>
                   <p class="text-xs font-weight-bold mb-0">{{ $sukuCadang->stock }}</p>
+                </td>
+                <td>
+                  <p class="text-xs font-weight-bold mb-0"></p>
                 </td>
                 <td class="align-middle text-center text-sm">
                   @if ($sukuCadang  ->stock>=1)

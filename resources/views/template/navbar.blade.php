@@ -109,14 +109,14 @@
             <span class="nav-link-text ms-1">Laporan Penjualan</span>
           </a>
         </li>
-        {{-- <li class="nav-item">
-          <a class="nav-link {{ ($pages == 'wagner') ? 'active' : '' }}" href="{{ url('wagner') }}">
+        <li class="nav-item">
+          <a class="nav-link {{ ($pages == 'Algoritma Wagner Within') ? 'active' : '' }}" href="{{ url('wagner') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="fas fa-solid fa-chart-line text-primary text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Algoritma Wagner Whitin</span>
+            <span class="nav-link-text ms-1">Algoritma Wagner Within</span>
           </a>
-        </li> --}}
+        </li>
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account Setting</h6>
         </li>

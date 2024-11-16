@@ -45,7 +45,7 @@ class LaporanPenjualanController extends Controller
         $jumlah = (int) $request->jumlah;
         $harga = (int) $request->harga;
         $validatedData = $request->validate([
-            'nomor' => ['required','unique:laporan_pembelians'],
+            'nomor' => ['required','unique:laporan_penjualans'],
             'nama' => 'required',
             'harga' => 'required',
             'jumlah' => 'required',
@@ -102,7 +102,7 @@ class LaporanPenjualanController extends Controller
             'tanggal' => 'required',
         ];
         if ($request->nomor != $laporanPenjualan->nomor) {
-            $rules['nomor'] = 'required|unique:laporan_kerusakans';
+            $rules['nomor'] = 'required|unique:laporan_penjualans';
         }
         // 0 sedang dikerjakan 1 sudah diperbaiki
         $validatedData = $request->validate($rules);

@@ -32,6 +32,20 @@
               @enderror
             </div>
             <div class="form-group">
+              <label for="holdingCosts">Biaya Simpan Suku Cadang</label>
+              <input type="number" class="form-control @error('holdingCosts') is-invalid @enderror" id="holdingCosts" placeholder="500" name="holdingCosts" value="{{ old('holdingCosts') }}" required>
+              @error('holdingCosts')
+              <div class="alert alert-danger" style="color: white">{{ $message }}</div>
+              @enderror
+            </div>
+            <div class="form-group">
+              <label for="biayaPemesanan">Biaya Pemesanan Suku Cadang</label>
+              <input type="number" class="form-control @error('biayaPemesanan') is-invalid @enderror" id="biayaPemesanan" placeholder="15000" name="biayaPemesanan" value="{{ old('biayaPemesanan') }}" required>
+              @error('biayaPemesanan')
+              <div class="alert alert-danger" style="color: white">{{ $message }}</div>
+              @enderror
+            </div>
+            <div class="form-group">
               <label for="stock">Stock Awal</label>
               <input type="number" class="form-control @error('stock') is-invalid @enderror" id="stock" placeholder="15" name="stock" value="{{ old('stock') }}" required>
               @error('stock')

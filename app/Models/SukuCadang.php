@@ -11,6 +11,8 @@ class SukuCadang extends Model
         'nama',
         'jenis',
         'harga',
+        'holdingCosts',
+        'biayaPemesanan',
         'stock',
     ];
     
@@ -19,5 +21,8 @@ class SukuCadang extends Model
     }
     public function penjualans(){
         return $this->hasMany(LaporanPenjualan::class, 'nama', 'nomor');
+    }
+    public function wagners(){
+        return $this->hasMany(Wagner::class, 'nomor', 'nomor');
     }
 }

@@ -49,6 +49,8 @@ class SukuCadangController extends Controller
             'nama' => 'required',
             'jenis' => 'required',
             'harga' => 'required',
+            'holdingCost' => 'required',
+            'biayaPemesanan' => 'required',
             'stock' => 'required',
         ]);
         $validatedData['harga'] = $harga;
@@ -87,17 +89,23 @@ class SukuCadangController extends Controller
     public function update(UpdateSukuCadangRequest $request, SukuCadang $sukuCadang)
     {
         $harga = (int) $request->input('harga');
+        $holdingCosts = (int) $request->input('holdingCosts');
+        $biayaPemesanan = (int) $request->input('biayaPemesanan');
         $rules = [
             'nama' => 'required',
             'jenis' => 'required',
             'harga' => 'required',
             'stock' => 'required',
+            'holdingCost' => 'required',
+            'biayaPemesanan' => 'required',
         ];
         if ($request->nomor != $sukuCadang->nomor) {
             $rules['nomor'] = 'required|unique:suku_cadangs';
         }
         $validatedData = $request->validate($rules);   
         $validatedData['harga'] = $harga;
+        $validatedData['holdingCosts'] = $holdingCosts;
+        $validatedData['biayaPemesanan'] = $biayaPemesanan;
         SukuCadang::where('id',$sukuCadang->id)
                     ->update($validatedData);
         return redirect('/sukucadang')->with('success','Data Diupdate');

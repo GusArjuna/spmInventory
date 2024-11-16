@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('nama');
             $table->string('jenis'); 
             $table->integer('harga');
+            $table->integer('holdingCosts');
+            $table->integer('biayaPemesanan');
             $table->integer('stock');
             $table->timestamps();
         

@@ -14,11 +14,13 @@ return new class extends Migration
         Schema::create('wagners', function (Blueprint $table) {
             $table->id();
             $table->string('nomor');
-            $table->string('nama');
-            $table->integer('lalu');
-            $table->integer('ini');
-            $table->integer('restock');
+            $table->integer('periode1')->nullable();
+            $table->integer('periode2')->nullable();
+            $table->integer('periode3')->nullable();
+            $table->integer('ww')->nullable();
             $table->timestamps();
+
+            $table->foreign('nomor')->references('nomor')->on('suku_cadangs')->onDelete('cascade');
         });
     }
 
