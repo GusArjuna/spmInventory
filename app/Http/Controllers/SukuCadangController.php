@@ -7,6 +7,7 @@ use App\Http\Requests\StoreSukuCadangRequest;
 use App\Http\Requests\UpdateSukuCadangRequest;
 use App\Models\Alat;
 use App\Models\jenis;
+use App\Models\Wagner;
 
 class SukuCadangController extends Controller
 {

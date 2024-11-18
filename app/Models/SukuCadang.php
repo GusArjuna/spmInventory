@@ -23,6 +23,6 @@ class SukuCadang extends Model
         return $this->hasMany(LaporanPenjualan::class, 'nama', 'nomor');
     }
     public function wagners(){
-        return $this->hasMany(Wagner::class, 'nomor', 'nomor');
+        return $this->hasOne(Wagner::class, 'nomor', 'nomor');
     }
 }

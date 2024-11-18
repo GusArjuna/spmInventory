@@ -132,8 +132,11 @@ class WagnerController extends Controller
                     $hasil = 0;
                     $count = 0;
                     for ($a=$i; $a <= $q; $a++) { 
-                        $hasil += $demand[$key][$a];
+                        $hasil += $matrixAlternative[$key][$i][$a];
                         $count++;
+                    }
+                    if($q==1){
+                        // dd($hasil);
                     }
                     $matrixBiaya[$key][$i][$q] = $demand[$key]['biayaPemesanan']+$demand[$key]['holdingCosts']*$hasil*($count);
                     // if($q==$i){
@@ -176,12 +179,11 @@ class WagnerController extends Controller
 
         foreach ($wagnerDemands as $wagner) {
             $sukuCadang = SukuCadang::where('nomor',$wagner->nomor)->get()->first();
-            $wagnerWithin = ($totalDemand[$wagner->nomor]*$sukuCadang->harga)+$matrixTotal[$key]['minimum'][2]+($totalDemand[$wagner->nomor]*$sukuCadang->holdingCosts);
+            $wagnerWithin = ($totalDemand[$wagner->nomor]*$sukuCadang->harga)+$matrixTotal[$wagner->nomor]['minimum'][2]+($totalDemand[$wagner->nomor]*$sukuCadang->holdingCosts);
             Wagner::where('nomor',$wagner->nomor)->update([
                 'ww' => $wagnerWithin,
             ]);
         }
-
         // dd(SukuCadang::first(),$wagnerDemands,$demand,$matrixAlternative,$matrixBiaya,$matrixTotal,$totalDemand);    
 
         $wagners = Wagner::paginate(15);
