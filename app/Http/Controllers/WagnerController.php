@@ -130,15 +130,14 @@ class WagnerController extends Controller
             for ($i=0; $i < 3 ; $i++) { 
                 for ($q=$i; $q < 3 ; $q++) { 
                     $hasil = 0;
-                    $count = 0;
-                    for ($a=$i; $a <= $q; $a++) { 
-                        $hasil += $matrixAlternative[$key][$i][$a];
-                        $count++;
+
+                    for ($a=$q; $a >= $i; $a--) { 
+                        $hasil += ($matrixAlternative[$key][$i][$q]-$matrixAlternative[$key][$i][$a]);
                     }
-                    if($q==1){
-                        // dd($hasil);
-                    }
-                    $matrixBiaya[$key][$i][$q] = $demand[$key]['biayaPemesanan']+$demand[$key]['holdingCosts']*$hasil*($count);
+                    // if($q==2){
+                    //     dd($hasil);
+                    // }
+                    $matrixBiaya[$key][$i][$q] = $demand[$key]['biayaPemesanan']+$demand[$key]['holdingCosts']*$hasil;
                     // if($q==$i){
                     //     $matrixBiaya[$key][$i][$q]=$demand[$key]['biayaPemesanan']+$demand[$key]['holdingCosts']*( $matrixAlternative[$key][$i][$q]- $matrixAlternative[$key][$i][$q]);
                     // }else {

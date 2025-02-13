@@ -9,10 +9,10 @@
     {{ $title }}
   </title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-  <link href="{{('css/nucleo-icons.css')}}" rel="stylesheet" />
-  <link href="{{('css/nucleo-svg.css')}}" rel="stylesheet" />
+  <link href="{{URL::asset('css/nucleo-icons.css')}}" rel="stylesheet" />
+  <link href="{{URL::asset('css/nucleo-svg.css')}}" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="{{ url('css/nucleo-svg.css') }}" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet" />
   <link id="pagestyle" href="{{ url('css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" />
 </head>
 
